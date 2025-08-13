@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "635a8e05-1442-4fa7-a98a-24abb67ae209",
+		"name": "Коллекция для тестового задания",
+		"description": "victory-soft тестовое задание",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24853049"
+	},
+	"item": [
+		{
+			"name": "Alpha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/beta.php?n=1000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"beta.php"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Beta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/beta.php?n=10",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"beta.php"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gamma",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/gamma.php",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"gamma.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost",
+			"type": "default"
+		}
+	]
+}
