@@ -1,0 +1,214 @@
+/* styles.css */
+:root {
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --text: #1b1f24;
+    --muted: #626973;
+    --border: #e6e9ef;
+    --accent: #2f6feb;
+    --accent-hover: #2254c5;
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+    --radius: 12px;
+    --focus: 0 0 0 3px rgba(47, 111, 235, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0e1116;
+        --card: #11161c;
+        --text: #e6eaf0;
+        --muted: #a0a7b2;
+        --border: #232a34;
+        --accent: #6aa3ff;
+        --accent-hover: #8bb8ff;
+        --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+        --focus: 0 0 0 3px rgba(106, 163, 255, 0.35);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 32px 20px 40px;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body > * {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Заголовки */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--muted);
+}
+
+/* Ряды управления */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* Поля ввода и кнопки */
+input[type="number"] {
+    appearance: textfield;
+    width: 140px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--text);
+    box-shadow: none;
+    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+input[type="number"]:hover {
+    border-color: color-mix(in oklab, var(--border), var(--text) 20%);
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: var(--focus);
+}
+
+button#run {
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: transform .05s ease, background-color .15s ease, box-shadow .15s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 16px rgba(47, 111, 235, .25);
+}
+
+button#run:hover {
+    background: var(--accent-hover);
+}
+
+button#run:active {
+    transform: translateY(1px);
+}
+
+button#run:focus-visible {
+    outline: none;
+    box-shadow: var(--focus), 0 1px 2px rgba(0,0,0,.04), 0 6px 16px rgba(47, 111, 235, .25);
+}
+
+/* Блок результатов */
+#betaResult {
+    width: 100%;
+    min-height: 100px;
+    margin: 0;
+    padding: 14px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 13px;
+    color: var(--text);
+}
+
+/* Информация подзаголовка */
+body > div:first-of-type + .row + h2 + div {
+    color: var(--muted);
+    margin-top: -4px;
+}
+
+/* Карточка статистики */
+#stats {
+    margin-top: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px;
+}
+
+#stats > div {
+    margin: 6px 0;
+}
+
+/* Таблица */
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    background: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    background: color-mix(in oklab, var(--card), var(--text) 4%);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 12px;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover {
+    background: color-mix(in oklab, var(--card), var(--text) 3%);
+}
+
+/* Адаптивность */
+@media (max-width: 640px) {
+    body {
+        padding: 20px 14px 28px;
+    }
+    input[type="number"] {
+        width: 120px;
+    }
+    #betaResult {
+        min-height: 80px;
+    }
+}
